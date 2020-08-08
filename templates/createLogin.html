@@ -1,0 +1,29 @@
+<html>
+   <body>
+      <h1>Login</h1>
+
+      {% if error %}
+         <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+      
+      <form action = "" method = post>
+         <dl>
+            <dt>Username:</dt>
+            <dd>
+               <input type = text name = email
+                  value = "{{request.form.email }}">
+            </dd>
+            <dt>Password:</dt>
+            <dd><input type = password name = password value= "{{request.form.password }}"></dd>
+             <dt>Client ID:</dt>
+            <dd><input type = text name = clientID value= "{{request.form.clientID }}"></dd>
+             <dt>Client Secret:</dt>
+            <dd><input type = text name = clientSecret value= "{{request.form.clientSecret }}"></dd>
+             <dt>Refresh Token:</dt>
+            <dd><input type = text name = refreshToken value= "{{request.form.refreshToken }}"></dd>
+         </dl>
+         <p><input type = submit value = Submit></p>
+          <p><a href="{{url_for('login')}}">Go Back To Login</a></p>
+      </form>
+   </body>
+</html>

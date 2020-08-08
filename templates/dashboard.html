@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="container">
+          <div class="center">
+              <form id="myForm" method="POST">
+                <select id="mySelect" name = "activityType" onchange='if(this.value != 0) { this.form.submit(); }'>
+                    <option value=0>{{act_type}}</option>
+                  {% for item in unique_act %}
+                    <option value={{item}}>{{item}}</option>
+                  {% endfor %}
+                </select>
+              </form>
+            <button id="distance">Distance</button>&nbsp;
+            <button id="elevation">Elevation</button>&nbsp;
+            <button id="time">Time</button>&nbsp;
+          </div>
+        </div>
+        <table id="data-table" rows='{{rows}}' el='{{el}}' ti='{{ti}}' avg={{avg}} avgE={{avgE}} avgT={{avgT}}></table>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='dashboardscript.js')}}"></script>
+</html>
